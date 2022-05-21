@@ -34,6 +34,32 @@ const SettingsPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  // fetching categories and loading form
+  useEffect(() => {
+    if (categoryStatus === "idle") {
+      dispatch(fetchCategories());
+    }
+
+    if (categoryStatus === "loading") {
+      <Box mt={20}>
+        <CircularProgress size={150} />
+      </Box>;
+    }
+
+    if (categoryStatus === "failed") {
+      <Typography variant="h6" mt={20} color="red">
+        Technical Difficulties! Refresh the Page and Take a Shot!
+      </Typography>;
+    }
+  }, [categoryStatus, dispatch]);
+
+  //getting categories from redux
+  const allCategories = useSelector(categories);
+  const categoriesSliced = allCategories.slice(24);
+
+
+  const categoryStatus = useSelector(state => state.categories.status);
+
   // declaring values for the form
   const [form, setFormValue] = useState({
     category: "",
@@ -54,32 +80,7 @@ const SettingsPage = () => {
     return e.preventDefault();
   }
 
-  //getting categories from redux
-  const allCategories = useSelector(categories);
-  const categoriesSliced = allCategories.slice(24);
 
-
-  const categoryStatus = useSelector(state => state.categories.status);
-
-
-  // fetching categories and loading form
-  useEffect(() => {
-    if (categoryStatus === "idle") {
-      dispatch(fetchCategories());
-    }
-
-    if (categoryStatus === "loading") {
-      <Box mt={20}>
-        <CircularProgress size={150} />
-      </Box>;
-    }
-
-    if (categoryStatus === "failed") {
-      <Typography variant="h6" mt={20} color="red">
-        Technical Difficulties! Refresh the Page and Take a Shot!
-      </Typography>;
-    }
-  }, [categoryStatus, dispatch]);
 
   const startGame = (e) => {
     e.preventDefault();
@@ -95,7 +96,7 @@ const SettingsPage = () => {
       <Navbar />
 
       <Container maxWidth="md" style={{ backgroundColor: "white" }}>
-        <Box sx={{pt:"2%", pb:"5%", mt:"2%", mb:"5%"}}>
+        <Box sx={{ pt: "2%", pb: "5%", mt: "2%", mb: "5%" }}>
           <h1 className="quiz-settings-title">Quiz Settings</h1>
           <h4
             className="quiz-settings-rules-link"
