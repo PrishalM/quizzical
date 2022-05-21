@@ -6,6 +6,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { sendScoreToDB } from "../../actions/Trivia";
 import { Button, Container } from "@mui/material";
 import { settingsButtonStyles } from "../../components";
+import beer from "./beer.png"
+import crown from "./crown.png"
+import whisky from "./whisky.png"
 
 const ResultsPage = () => {
   const navigate = useNavigate();
@@ -51,7 +54,7 @@ const ResultsPage = () => {
             <div id="results-container">
               <img
                 id="winners-crown"
-                src="./images/crown.png"
+                src={crown}
                 alt="Royal crown"
               />
               <div id="winner-container">
@@ -61,7 +64,7 @@ const ResultsPage = () => {
                 <p className="responsive-hidden-p">{player1Score > player2Score ? formInfo.player1 : formInfo.player2}</p>
                 <div className="points-container">
                   <p className="responsive-para">{player1Score > player2Score ? formInfo.player1 : formInfo.player2}</p>
-                  <img src="./images/beer.png" alt="Pint of frothy beer" />
+                  <img src={beer} alt="Pint of frothy beer" />
                   <p>{player1Score > player2Score ? player1Score : player2Score} points</p>
                 </div>
               </div>
@@ -74,7 +77,7 @@ const ResultsPage = () => {
                 <div className="points-container">
                   <p className="responsive-para">{player1Score < player2Score ? formInfo.player1 : formInfo.player2}</p>
                   <img
-                    src="./images/whisky.png"
+                    src={whisky}
                     alt="Bottle of whisky and a spilt shot glass"
                   />
                   <p>{player1Score < player2Score ? player1Score : player2Score} point</p>

@@ -36,17 +36,17 @@ export var yellowStyles = {
 
 export var whiteStyles = {
   color: "#000a3c",
-  height: "80px",
+  // height: "80px",
   fontWeight: 700,
   display: "block",
   border: "none",
-  fontSize: "30px",
+  // fontSize: "30px",
   cursor: "pointer",
-  marginTop: "30px",
-  backgroundColor: "#e5e5e5",
+  // marginTop: "30px",
+  backgroundColor: "#ffc107",
   fontFamily: "Poppins",
   textTransform: "none",
-  width: "60%",
+  backgroundColor: "#e5e5e5",
 };
 
 export const difficultyOptions = [
