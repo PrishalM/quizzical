@@ -81,7 +81,8 @@ const SettingsPage = () => {
     }
   }, [categoryStatus, dispatch]);
 
-  const startGame = () => {
+  const startGame = (e) => {
+    e.preventDefault();
     dispatch(updateRoundSettings(form));
     dispatch(fetchQuestions(form));
     navigate("/game");
@@ -94,7 +95,7 @@ const SettingsPage = () => {
       <Navbar />
 
       <Container maxWidth="md" style={{ backgroundColor: "white" }}>
-        <Box className="settings-container">
+        <Box sx={{pt:"2%", pb:"5%", mt:"2%", mb:"5%"}}>
           <h1 className="quiz-settings-title">Quiz Settings</h1>
           <h4
             className="quiz-settings-rules-link"
@@ -184,6 +185,7 @@ const SettingsPage = () => {
                   label="Player 1 Name"
                   name="player1"
                   onChange={changeHandler}
+                  required
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
@@ -198,6 +200,7 @@ const SettingsPage = () => {
             <Box mt={3} width="100%">
               <FormControl fullWidth>
                 <TextField
+                  required
                   variant="outlined"
                   type="text"
                   label="Player 2 Name"

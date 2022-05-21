@@ -5,7 +5,6 @@ export const fetchQuestions = createAsyncThunk(
   "reducers/fetchQuestions",
   async (query) => {
     const {numOfQuestions, category, difficulty} = query
-    console.log(query)
     const res = await getQuestions(numOfQuestions, category, difficulty);
     return res;
   }
