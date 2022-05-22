@@ -97,7 +97,7 @@ const SettingsPage = () => {
             How to Play
           </h4>
 
-          <form onSubmit={handleSubmit}>
+          {allCategories.length === 0 ? <h1>Loading ...</h1> :
             <Box mt={3} width="100%">
               <FormControl fullWidth>
                 <InputLabel>Categories</InputLabel>
@@ -115,6 +115,8 @@ const SettingsPage = () => {
                 </Select>
               </FormControl>
             </Box>
+          }
+          <form onSubmit={handleSubmit}>
 
             <Box mt={3} width="100%">
               <FormControl fullWidth>
