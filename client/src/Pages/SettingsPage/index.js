@@ -34,18 +34,23 @@ const SettingsPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const categoryStatus = useSelector(state => state.categories.status);
+
   // fetching categories and loading form
   useEffect(() => {
+    if (categoryStatus === "idle") {
+      dispatch(fetchCategories());
+    }
 
-    dispatch(fetchCategories());
-
-  }, [dispatch]);
+    if (categoryStatus === "failed") {
+      <Typography variant="h6" mt={20} color="red">
+        Technical Difficulties! Refresh the Page and Take a Shot!
+      </Typography>;
+    }
+  }, [categoryStatus, dispatch]);
 
   //getting categories from redux
   const allCategories = useSelector(categories);
-  const categoriesSliced = allCategories.slice(24);
-
-  console.log(allCategories)
 
   // declaring values for the form
   const [form, setFormValue] = useState({
@@ -102,7 +107,7 @@ const SettingsPage = () => {
                   label="Categories"
                   onChange={changeHandler}
                 >
-                  {categoriesSliced.map(({ name, id }) => (
+                  {allCategories.map(({ name, id }) => (
                     <MenuItem value={id} key={id}>
                       {name}
                     </MenuItem>
