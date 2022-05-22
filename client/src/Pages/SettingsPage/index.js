@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import InputAdornment from "@mui/material/InputAdornment";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import { gameId, updateRoundSettings } from "../../reducers/gameSlice";
-import { fetchCategories, categories } from "../../reducers/categoriesSlice";
-import { fetchQuestions } from "../../reducers/questionsSlice";
+import { gameId, updateRoundSettings } from "../../reducers/gameSlice.js";
+import { fetchCategories, categories } from "../../reducers/categoriesSlice.js";
+import { fetchQuestions } from "../../reducers/questionsSlice.js";
 import {
   FormControl,
   InputLabel,
@@ -36,29 +36,16 @@ const SettingsPage = () => {
 
   // fetching categories and loading form
   useEffect(() => {
-    if (categoryStatus === "idle") {
-      dispatch(fetchCategories());
-    }
 
-    if (categoryStatus === "loading") {
-      <Box mt={20}>
-        <CircularProgress size={150} />
-      </Box>;
-    }
+    dispatch(fetchCategories());
 
-    if (categoryStatus === "failed") {
-      <Typography variant="h6" mt={20} color="red">
-        Technical Difficulties! Refresh the Page and Take a Shot!
-      </Typography>;
-    }
-  }, [categoryStatus, dispatch]);
+  }, [dispatch]);
 
   //getting categories from redux
   const allCategories = useSelector(categories);
   const categoriesSliced = allCategories.slice(24);
 
-
-  const categoryStatus = useSelector(state => state.categories.status);
+  console.log(allCategories)
 
   // declaring values for the form
   const [form, setFormValue] = useState({
