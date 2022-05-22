@@ -1,9 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-export const fetchGameId = createAsyncThunk("game/fetchGameId", async id => {
-  return id;
-});
-
 export const gameSlice = createSlice({
   name: "game",
   initialState: {
@@ -25,19 +21,6 @@ export const gameSlice = createSlice({
       state.roundSettings = action.payload;
     }
   },
-  extraReducers: {
-    [fetchGameId.pending]: (state, action) => {
-      state.status = "loading";
-    },
-    [fetchGameId.fulfilled]: (state, action) => {
-      state.status = "succeeded";
-      state.id = action.payload;
-    },
-    [fetchGameId.rejected]: (state, action) => {
-      state.status = "failed";
-      state.error = action.error.message;
-    }
-  }
 });
 
 export const {

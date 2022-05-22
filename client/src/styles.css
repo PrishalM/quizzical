@@ -98,7 +98,7 @@ footer {
   color: var(--primary-blue-light);
   background-color: var(--primary-blue);
   position: fixed;
-  bottom: 0;
+  bottom: 2%;
   width: 100%;
   text-align: center;
 }
@@ -120,19 +120,20 @@ footer a {
 #beforeYouStart-heading {
   font-size: 64px;
   text-align: center;
-  padding-top: 1%;
+  margin-top: 1%;
 }
 
 #beforeYouStart-terms {
   font-size: 32px;
   font-weight: 500;
   padding-top: 1%;
-  width: 55%;
+  max-width: 70%;
 }
 
 #beforeYouStart-terms i {
   padding-right: 5%;
 }
+
 #beforeYouStart-terms p {
   padding-top: 2%;
   padding-bottom: 2%;
@@ -250,11 +251,19 @@ footer a {
 
 .answer1,
 .answer4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--secondary-yellow);
+  text-align: center;
 }
 
 .answer2,
 .answer3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   background-color: var(--secondary-pink);
   color: var(--primary-blue-light);
 }
@@ -273,6 +282,9 @@ footer a {
 
 #winners-crown {
   position: absolute;
+  z-index: 0;
+  left: 45%;
+  top: 35.5%;
 }
 
 #restartBtn {
@@ -283,6 +295,7 @@ footer a {
 
 #results-container {
   display: flex;
+  margin-top: 4%;
 }
 
 #results-container div {
@@ -310,6 +323,7 @@ footer a {
 }
 
 #winner-container {
+  z-index: 1;
   background-color: var(--secondary-yellow);
   margin: 50px;
 }
@@ -336,6 +350,7 @@ footer a {
 #rules-heading {
   font-size: 64px;
   font-weight: 700;
+  margin-top: 1%;
 }
 
 .btn-container {
@@ -351,9 +366,7 @@ footer a {
 }
 
 #rules-list {
-  font-size: 24px;
-  width: 60%;
-  padding-bottom: 10%;
+  font-size: 2em;
 }
 
 /***************************************************************************************/
@@ -420,7 +433,7 @@ footer a {
   /* RulesPage */
   #rules-heading {
     font-size: 32px;
-    padding-top: 10px;
+
   }
 
   #back-btn {
@@ -429,7 +442,7 @@ footer a {
   }
 
   #rules-list {
-    font-size: 16px;
+    font-size: 1.5em;
   }
 
   /* BeforeYouStartPage */
@@ -438,7 +451,7 @@ footer a {
   }
 
   #beforeYouStart-terms {
-    font-size: 18px;
+    font-size: 1.8em;
   }
 
   /* GamePage */
@@ -452,7 +465,7 @@ footer a {
   .settings-container {
     padding-top: 2%;
     padding-bottom: 5%;
-    margin-top: 5%;
+    margin-top: 2%;
     margin-bottom: 5%;
   }
 
@@ -492,7 +505,7 @@ footer a {
   .question {
     text-align: center;
     margin-top: 60px;
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .answers-container {

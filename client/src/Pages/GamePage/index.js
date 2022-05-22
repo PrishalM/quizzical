@@ -194,8 +194,12 @@ const GamePage = () => {
     <>
       <Navbar />
 
-      <Timer className="timer" currTime={timer} maxTime={formInfo.timer} />
-
+      {allQuestions.length === 0 ? 
+              <Box sx={{display:"flex", justifyContent:"center"}}>
+                <CircularProgress size={20} />
+              </Box >
+           : <Timer className="timer" currTime={timer} maxTime={formInfo.timer} /> }
+      
       <QuestionNumber
         currQuestion={currentQuestion}
         numOfQuestions={formInfo.numOfQuestions}
@@ -220,7 +224,7 @@ const GamePage = () => {
             decode(allQuestions[currentQuestion - 1].question)
           )}
         </div>
-        <div class="answers-container">
+        <div className="answers-container">
           {allQuestions.length === 0 ? (
             <Box mt={20}>
               {" "}
